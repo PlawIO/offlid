@@ -41,7 +41,7 @@ go build ./...
 - Run `pnpm lint && pnpm typecheck && pnpm test` before pushing.
 - Follow the open/closed boundary in [CLAUDE.md](./CLAUDE.md): never contribute
   anything that belongs in the commercial cloud repo.
-- Be excellent to each other — see [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+- Be excellent to each other: see [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 
 ## Reporting bugs
 

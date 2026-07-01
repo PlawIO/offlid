@@ -1,6 +1,6 @@
 # @offlid/manifest
 
-The **capture-manifest schema** — the shape of the metadata the daemon collects
+The **capture-manifest schema**: the shape of the metadata the daemon collects
 for one session checkpoint: git state, the set of changed and untracked paths,
 environment keys, cwd, and transcript reference.
 

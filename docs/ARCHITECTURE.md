@@ -45,7 +45,7 @@ agent process, redacts secrets, and ships redacted manifests to the gateway.
 The gateway terminates the client connection and hands off to the checkpoint
 store, sync/merge engine, and runner orchestration. The wire protocol, storage,
 merge algorithm, and orchestration are part of the commercial service and are
-intentionally not published here. The client is inert without it — by design.
+intentionally not published here. The client is inert without it: by design.
 
 ## Trust boundary
 

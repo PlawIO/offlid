@@ -1,7 +1,7 @@
 /**
  * The offlid capture-manifest schema.
  *
- * This describes WHAT a single session checkpoint captures — not how it is
+ * This describes WHAT a single session checkpoint captures: not how it is
  * transported, stored, or merged. Those belong to the commercial cloud service.
  */
 

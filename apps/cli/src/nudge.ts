@@ -16,12 +16,12 @@ export async function maybeNudge(): Promise<void> {
   process.stdout.write(
     [
       "",
-      "  offlid — your Mac goes Offlid, your agent stays online.",
+      "  offlid: your Mac goes Offlid, your agent stays online.",
       "",
       "  Next steps:",
       "    1. Grant Keychain access when prompted (BYO API key).",
       "    2. Pick your agent adapter (codex, claude-code).",
-      "    3. Telemetry is opt-in — off by default.",
+      "    3. Telemetry is opt-in: off by default.",
       "",
       "  Docs: https://offlid.com/docs",
       "",

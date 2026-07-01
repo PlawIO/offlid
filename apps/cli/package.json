@@ -1,7 +1,7 @@
 {
   "name": "offlid",
   "version": "0.0.0",
-  "description": "npx offlid — resolve, verify, and launch the offlid daemon.",
+  "description": "npx offlid: resolve, verify, and launch the offlid daemon.",
   "license": "Apache-2.0",
   "type": "module",
   "bin": {

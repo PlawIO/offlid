@@ -20,7 +20,7 @@ what the on-laptop components touch and the trust boundaries between them.
    boundary. The client authenticates to the gateway; the gateway is operated by
    the commercial service and is out of scope for this repo.
 3. **Client ↔ approvals.** Approval prompts are rendered as `veto://` deep links.
-   The client carries **no policy logic** — it only renders the link.
+   The client carries **no policy logic**: it only renders the link.
 
 ## Credential handling
 
@@ -33,8 +33,8 @@ what the on-laptop components touch and the trust boundaries between them.
 ## Redaction before transport
 
 Before any capture manifest or transcript leaves the device, the redaction pass
-(`apps/daemon/internal/redact`) strips known secret shapes — API keys, tokens,
-private keys, `.env` values — so they are not transmitted to the cloud gateway.
+(`apps/daemon/internal/redact`) strips known secret shapes: API keys, tokens,
+private keys, `.env` values: so they are not transmitted to the cloud gateway.
 
 ## Out of scope
 

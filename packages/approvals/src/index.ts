@@ -12,7 +12,7 @@ export interface ApprovalRequest {
 
 /**
  * Build the `veto://` deep link for an approval request. This is pure string
- * construction — it makes no decision and applies no policy.
+ * construction: it makes no decision and applies no policy.
  */
 export function buildDeepLink(req: ApprovalRequest): string {
   const params = new URLSearchParams({ id: req.id });

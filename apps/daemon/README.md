@@ -1,4 +1,4 @@
-# offlidd — the offlid daemon
+# offlidd: the offlid daemon
 
 `offlidd` is the always-on macOS daemon. It registers with launchd, watches the
 working tree, listens for power-state transitions, supervises the coding-agent
@@ -26,5 +26,5 @@ code-signed and notarized by CI (see `.github/workflows/sign-notarize.yml`).
 | `internal/transport`| talk to the cloud gateway                              |
 | `internal/redact`   | strip secrets before transport                         |
 
-The checkpoint store, sync/merge, and orchestration are **not** here — they run
+The checkpoint store, sync/merge, and orchestration are **not** here: they run
 in the commercial cloud service. This daemon only captures and transports.

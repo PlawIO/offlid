@@ -1,7 +1,7 @@
 {
   "name": "@offlid/approvals",
   "version": "0.0.0",
-  "description": "Approval-relay client. Renders a veto:// deep link only — zero policy logic.",
+  "description": "Approval-relay client. Renders a veto:// deep link only: zero policy logic.",
   "license": "Apache-2.0",
   "type": "module",
   "main": "dist/index.js",

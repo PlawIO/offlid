@@ -6,7 +6,7 @@ package capture
 import "context"
 
 // Manifest is the on-device capture manifest handed to redaction and transport.
-// It is the schema only — it carries no file contents, just what to capture.
+// It is the schema only: it carries no file contents, just what to capture.
 type Manifest struct {
 	// Cwd is the agent's working directory.
 	Cwd string
