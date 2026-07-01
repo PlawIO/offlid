@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+out/
+.turbo/
+
+# env + secrets
+.env
+.env.*
+
+# logs
+*.log
+
+# macOS
+.DS_Store
+
+# daemon build artifacts
+apps/daemon/bin/
+*.o

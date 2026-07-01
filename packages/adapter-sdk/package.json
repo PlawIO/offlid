@@ -1,0 +1,21 @@
+{
+  "name": "@offlid/adapter-sdk",
+  "version": "0.0.0",
+  "description": "The AgentAdapter interface and SDK for building offlid agent adapters.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@offlid/manifest": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.0"
+  }
+}
