@@ -7,35 +7,35 @@ gateway and everything behind it are a separate commercial service.
         your Mac                          |        offlid cloud (commercial)
                                           |
   +-------------------+                   |
-  |   npx offlid CLI  |  resolve+verify   |
-  |  (apps/cli)       |  the daemon       |
+  |   npx offlid CLI  |                   |
+  |  (apps/cli)       |                   |
   +---------+---------+                   |
-            | launches                    |
+            | discovers                   |
             v                             |
-  +-------------------+   redacted        |     +---------------------+
-  |  offlidd daemon   |   manifests       |     |   cloud gateway     |
-  |  (apps/daemon)    +-------- TLS ------>+---->+  (not in this repo) |
-  |                   |                   |     +----------+----------+
-  |  power  watch     |                   |                |
-  |  capture creds    |                   |                v
-  |  supervise redact |                   |     checkpoint store, sync/
-  +---------+---------+                   |     merge, orchestration,
-            | supervises                  |     runner adapters, billing
-            v                             |
+  +-------------------+      TLS          |     +---------------------+
+  |   Offlid Home     +------------------->+---->+   cloud gateway     |
+  |  private beta     |                   |     |  (not in this repo) |
+  +---------+---------+                   |     +----------+----------+
+            | opens agents                |                |
+            v                             |                v
+  +-------------------+                   |     checkpoint store, sync/
+  |   coding agents   |                   |     merge, orchestration,
+  |   and editors     |                   |     runner adapters, billing
   +-------------------+                   |
-  |   coding agent    |                   |
-  |   (via adapter)   |                   |
-  +-------------------+                   |
+
+  offlidd daemon: pre-release ambient capture infrastructure
 ```
 
 ## Client (`apps/cli`)
 
-`npx offlid` resolves the signed daemon for the platform, verifies it (SHA-256 +
-cosign), and launches it. See [`apps/cli/README.md`](../apps/cli/README.md).
+`npx offlid` is the public, self-contained Home launcher. It discovers the user-space Home installation,
+opens it in the chosen workspace, passes other commands to the installed Home CLI as exact argument arrays,
+and reports local readiness. It has no install lifecycle hook or implicit download path. See
+[`apps/cli/README.md`](../apps/cli/README.md).
 
 ## Daemon (`apps/daemon`)
 
-`offlidd` registers with launchd and runs always-on. It hooks IOKit power state
+`offlidd` is pre-release infrastructure. It will register with launchd and run always-on. It hooks IOKit power state
 (lid close/open), watches the working tree via FSEvents, builds capture
 manifests, reads and ephemerally injects Keychain credentials, supervises the
 agent process, redacts secrets, and ships redacted manifests to the gateway.

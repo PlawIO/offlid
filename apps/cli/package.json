@@ -1,34 +1,39 @@
 {
   "name": "offlid",
-  "version": "0.0.0",
-  "description": "npx offlid: resolve, verify, and launch the offlid daemon.",
+  "version": "0.0.1",
+  "description": "The public launcher for Offlid Home.",
   "license": "Apache-2.0",
   "type": "module",
   "bin": {
     "offlid": "dist/index.js"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist/home.js", "dist/index.js", "README.md"],
+  "homepage": "https://offlid.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PlawIO/offlid.git",
+    "directory": "apps/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/PlawIO/offlid/issues"
+  },
+  "keywords": ["offlid", "coding-agent", "claude-code", "codex", "ghostty", "developer-tools"],
+  "sideEffects": false,
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "node --test"
-  },
-  "dependencies": {
-    "@offlid/launcher-core": "workspace:*"
-  },
-  "optionalDependencies": {
-    "//": "Platform daemon binaries are resolved via os/cpu (esbuild-style).",
-    "//@offlid/daemon-darwin-arm64": "workspace:*",
-    "//@offlid/daemon-darwin-x64": "workspace:*",
-    "//@offlid/daemon-linux-x64": "workspace:*",
-    "//@offlid/daemon-linux-arm64": "workspace:*"
+    "test": "node --test dist/*.test.js && node scripts/check-package.mjs && node scripts/smoke-package.mjs",
+    "pack:check": "pnpm build && node scripts/check-package.mjs && node scripts/smoke-package.mjs"
   },
   "devDependencies": {
+    "@types/node": "^22.10.0",
     "typescript": "~5.6.0"
   }
 }

@@ -1,37 +1,42 @@
 # Install
 
-> Status: pre-launch. Interfaces may change.
+> Status: private beta. The public npm package is a launcher, not an installer.
 
 ## Requirements
 
-- macOS (Apple Silicon or Intel)
-- Node.js >= 18 (for `npx`)
-- A supported coding agent on PATH (see the adapters under `packages/adapters`)
+- macOS 13 or newer
+- Node.js 18 or newer for `npx`
+- Neovim
+- Ghostty recommended
+- an Offlid Home beta installation for the current user
 
-## Run
+## Open Home
 
 ```sh
 npx offlid
+npx offlid home ~/Repos/product
 ```
 
-On first run the launcher will:
+The launcher looks for Home at Offlid's current-user installation path. An explicit `OFFLID_HOME_BIN`
+override supports development and managed installations. It never executes a generic `home` command from
+`PATH`, runs a lifecycle install script, requests administrator access, copies credentials, or downloads an
+unverified executable.
 
-1. Resolve the daemon build for your platform. Platform binaries ship as
-   optional dependencies; if none is present, the launcher downloads a signed
-   build from the release CDN.
-2. Verify the binary (SHA-256 + cosign). A binary that fails verification is
-   never executed.
-3. Cache the verified binary under `~/.offlid`.
-4. Walk you through onboarding: Keychain access for BYO API keys, adapter
-   selection, and the opt-in telemetry choice (off by default).
+Check readiness without changing the machine:
 
-## Bring your own API key
+```sh
+npx offlid doctor
+npx offlid doctor --json
+```
 
-offlid reads provider API keys from the macOS Keychain, envelope-encrypts them
-locally, and injects them ephemerally into the agent process. Keys are never
-written to disk in plaintext. See [THREAT_MODEL.md](../THREAT_MODEL.md).
+If Home is absent, the launcher exits with one clear enrollment route. Private-beta installation is provided
+through Offlid enrollment at [offlid.com](https://offlid.com). We do not document a fictional public installer.
 
-## Uninstall
+## Trust and removal
 
-Remove the launchd job and delete `~/.offlid`. A managed uninstall command will
-land before general availability.
+The npm tarball contains two compiled JavaScript files, its README, and package metadata. CI audits that exact
+allowlist, installs the tarball offline with lifecycle scripts disabled, and exercises the Home handoff.
+
+Home is installed in user space under `~/.local/lib/offlid-home` with launchers in `~/.local/bin`. It does not
+need a system-wide package or repeated administrator access. Managed removal will land before general
+availability.

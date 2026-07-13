@@ -2,6 +2,8 @@
 // no rules, no classification, no allow/deny decisions. It only renders a
 // veto:// deep link for the user. Policy is evaluated by the approval service.
 
+import { URLSearchParams } from "node:url";
+
 /** An approval request handle issued by the approval service. */
 export interface ApprovalRequest {
   /** Opaque request id issued upstream. */

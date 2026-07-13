@@ -2,27 +2,32 @@
 
 **Your Mac goes Offlid. Your agent stays online.**
 
-offlid keeps your coding agent running after you close your laptop. A small local daemon checkpoints the session in the background; when your Mac sleeps, the agent keeps working on a cloud runner; when you reopen, the work syncs back.
+offlid keeps the thread when you leave. Home is a compact operating surface for local workspaces,
+cloud continuation, native coding agents, proof, return, and rewind.
 
 ```bash
 npx offlid
 ```
 
-> Pre-launch. The client in this repo is open source. The cloud it connects to is a commercial service. More at [offlid.com](https://offlid.com).
+The npm launcher is ready for private-beta Home installations. It has no install hook, does not request
+administrator access, and never downloads or executes a daemon implicitly. Home enrollment remains private
+beta. More at [offlid.com](https://offlid.com).
 
-## How it works
+## Product contract
 
-1. **Capture.** A local daemon (`offlidd`) records the session continuously: git HEAD and index, uncommitted and untracked files, environment, working directory, and the live agent transcript. Secrets are redacted before anything leaves your machine.
-2. **Handoff.** When your Mac sleeps, the daemon hands the session to a cloud runner over the wire protocol, and your agent keeps running.
-3. **Sync back.** When you reopen, the runner's work merges back into your local tree.
+1. **Keep the thread.** Home understands the workspace, current commitment, boundaries, and proof.
+2. **Continue safely.** Explicitly sealed work can continue on an isolated cloud runner while the Mac sleeps.
+3. **Return with proof.** Home presents the verified diff, evidence, preview, unresolved risk, and rewind.
 
-Capture runs continuously rather than firing once at lid close, because Apple Silicon does not let userspace reliably delay sleep. You bring your own API key: it is read from the macOS Keychain, encrypted locally, and injected only into the runner.
+The Go daemon in this repository is pre-release infrastructure for ambient capture. The current public npm
+package launches an already installed Home and fails clearly when Home is absent. It does not pretend the
+unfinished daemon distribution path works.
 
 ## Layout
 
 | Path | What |
 |------|------|
-| `apps/cli` | the `npx offlid` launcher (TypeScript) |
+| `apps/cli` | the self-contained `npx offlid` Home launcher (TypeScript) |
 | `apps/daemon` | `offlidd`, the macOS daemon (Go) |
 | `packages/manifest` | the capture format the daemon produces |
 | `packages/adapter-sdk`, `packages/adapters/*` | agent integrations (Claude Code, Codex) |
