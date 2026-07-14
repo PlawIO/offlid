@@ -1,13 +1,17 @@
 {
   "name": "offlid",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The public launcher for Offlid Home.",
   "license": "Apache-2.0",
   "type": "module",
   "bin": {
     "offlid": "dist/index.js"
   },
-  "files": ["dist/home.js", "dist/index.js", "README.md"],
+  "files": [
+    "dist/home.js",
+    "dist/index.js",
+    "README.md"
+  ],
   "homepage": "https://offlid.com",
   "repository": {
     "type": "git",
@@ -17,7 +21,14 @@
   "bugs": {
     "url": "https://github.com/PlawIO/offlid/issues"
   },
-  "keywords": ["offlid", "coding-agent", "claude-code", "codex", "ghostty", "developer-tools"],
+  "keywords": [
+    "offlid",
+    "coding-agent",
+    "claude-code",
+    "codex",
+    "ghostty",
+    "developer-tools"
+  ],
   "sideEffects": false,
   "engines": {
     "node": ">=18"
